@@ -1,0 +1,12 @@
+name: Los Portales
+
+# Permalinks
+# permalink:    pretty
+
+# Server
+source:         sources/html/
+destination:    dist/html/
+encoding:       UTF-8
+
+path:
+  assets:       ../assets/

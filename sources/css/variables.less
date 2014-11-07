@@ -1,0 +1,89 @@
+/**********/
+/* Setup */
+/********/
+@img-path: 							"/assets/images/";
+@navbar-height: 				164px;
+@navbar-fixed-height: 	50px;
+@border-radius-base: 		4px;
+@footer-height: 				214px;
+
+/***********/
+/* Colors */
+/*********/
+@orange-lighter: 				#fd975a;
+@orange-light: 					#ef631a;
+@orange: 								#ee5400;
+
+@gray-lighter:					#eee;
+@gray-light:						#ccc;
+@gray:									#777;
+@gray-dark:							#555;
+@gray-darker: 					#393939;
+
+@text-color:						@gray;
+@link-color:						black;
+@link-hover-color:			black;
+
+/***************/
+/* Typography */
+/*************/
+@font-family-sans:			"Source Sans Pro", Helvetica, Arial, sans-serif;
+@font-family-base:			@font-family-sans;
+
+@font-size-base:				16px;
+@line-height-base:			1.428571429; // 20/14
+
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+@line-height-computed: 	floor((@font-size-base * @line-height-base)); // ~20px
+
+@font-size-small:				14px;
+@font-size-medium:			20px;
+@font-size-large:				28px;
+@font-size-larger:			40px;
+@font-size-huge:				70px;
+
+@font-weight-bold:			700;
+@font-weight-semibold:	600;
+@font-weight-regular:		400;
+@font-weight-light:			300;
+
+/****************/
+/* Grid System */
+/**************/
+//
+//## non-defining custom responsive grid. For mixin use only.
+@grid-columns:              12;
+@grid-gutter-width:         30px;
+
+/******************************/
+/* Media queries breakpoints */
+/****************************/
+// Ultra extra small screen 
+@screen-uxs:          	400px;
+@screen-uxs-min:      	@screen-uxs;
+
+// Extra small screen / phone
+@screen-xs:          		480px;
+@screen-xs-min:      		@screen-xs;
+@screen-phone:       		@screen-xs-min;
+
+// Small screen / tablet
+@screen-sm:          		768px;
+@screen-sm-min:      		@screen-sm;
+@screen-tablet:      		@screen-sm-min;
+
+// Medium screen / desktop
+@screen-md:          		992px;
+@screen-md-min:      		@screen-md;
+@screen-desktop:     		@screen-md-min;
+
+// Large screen / wide desktop
+@screen-lg:         		1200px;
+@screen-lg-min:      		@screen-lg;
+@screen-lg-desktop:  		@screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-uxs-max:     		(@screen-uxs-min - 1);
+@screen-xs-max:      		(@screen-sm-min - 1);
+@screen-sm-max:      		(@screen-md-min - 1);
+@screen-md-max:      		(@screen-lg-min - 1);
