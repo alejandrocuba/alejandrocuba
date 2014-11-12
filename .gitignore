@@ -1,4 +1,6 @@
 node_modules/
+dist/html
+dist/assets/css
 
 #################
 ## Eclipse
@@ -194,7 +196,6 @@ $RECYCLE.BIN/
 # Packages
 *.egg
 *.egg-info
-dist/
 build/
 eggs/
 parts/

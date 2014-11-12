@@ -1,7 +1,7 @@
 {
-	"name": "Los Portales",
-	"description": "Los Portales S.A.",
-	"homepage": "http://www.losportales.cu/",
+	"name": "Alejandro Cuba",
+	"description": "Alejandro Cuba Ruiz website",
+	"homepage": "http://www.alejandrocuba.com/",
 	"devDependencies": {
 		"grunt": "~0.4.2",
 		"grunt-banner": "~0.2.0",

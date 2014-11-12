@@ -1,6 +1,6 @@
 /*!
- * Los Portales (http://www.losportales.cu/)
- * (c) 2014 Los Portales S.A.
+ * Alejandro Cuba (http://www.alejandrocuba.com/)
+ * (c) 2014 Alejandro Cuba Ruiz website
  * <> by ZorphDark
  */
 
@@ -37,41 +37,40 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: {
-					'<%= path.css.source %>compiled.min.css' : '<%= path.css.source %>losportales.less'
+					'<%= path.css.source %>compiled.min.css' : '<%= path.css.source %>alejandrocuba.less'
 				}
 			}
 		},
 
-		uglify: {
-			options: {
-				preserveComments: 'some'
-			},
-			dist: {
-				files: {
-					'<%= path.js.source %>compiled.min.js': '<%= path.js.source %>base.js'
-				}
-			}
-		},
+		// uglify: {
+		// 	options: {
+		// 		preserveComments: 'some'
+		// 	},
+		// 	dist: {
+		// 		files: {
+		// 			'<%= path.js.source %>compiled.min.js': '<%= path.js.source %>base.js'
+		// 		}
+		// 	}
+		// },
 
 		concat : {
 			css: {
 				files: {
-					'<%= path.css.dist %>losportales.min.css': [
-						'<%= path.css.source %>vendor/bootstrap/bootstrap.min.css',
-						'<%= path.css.source %>vendor/font-awesome.min.css',
+					'<%= path.css.dist %>alejandrocuba.min.css': [
+						// '<%= path.css.source %>vendor/bootstrap/bootstrap.min.css',
 						'<%= path.css.source %>compiled.min.css'
 					]
 				}
 			},
-			js: {
-				files: {
-					'<%= path.js.dist %>losportales.min.js': [
-						'<%= path.js.source %>vendor/jquery.min.js',
-						'<%= path.js.source %>vendor/bootstrap.min.js',
-						'<%= path.js.source %>compiled.min.js'
-					]
-				}
-			}
+			// js: {
+			// 	files: {
+			// 		'<%= path.js.dist %>alejandrocuba.min.js': [
+			// 			'<%= path.js.source %>vendor/jquery.min.js',
+			// 			'<%= path.js.source %>vendor/bootstrap.min.js',
+			// 			'<%= path.js.source %>compiled.min.js'
+			// 		]
+			// 	}
+			// }
 		},
 
 		usebanner: {
@@ -80,14 +79,14 @@ module.exports = function(grunt) {
 			},
 			css: {
 				files: {
-					src: [ '<%= path.css.dist %>losportales.min.css' ]
+					src: [ '<%= path.css.dist %>alejandrocuba.min.css' ]
 				}
 			},
-			js: {
-				files: {
-					src: [ '<%= path.js.dist %>losportales.min.js' ]
-				}
-			}
+			// js: {
+			// 	files: {
+			// 		src: [ '<%= path.js.dist %>alejandrocuba.min.js' ]
+			// 	}
+			// }
 		},
 
 		jekyll: {
@@ -106,12 +105,12 @@ module.exports = function(grunt) {
 				files: ['<%= path.css.source %>**/*.less'],
 				tasks: ['css']
 			},
-			js: {
-				files: ['<%= path.js.source %>**/*.js',
-						'! <%= path.js.source %>compiled.min.js'
-				],
-				tasks: ['js']
-			},
+			// js: {
+			// 	files: ['<%= path.js.source %>**/*.js',
+			// 			'! <%= path.js.source %>compiled.min.js'
+			// 	],
+			// 	tasks: ['js']
+			// },
 			html: {
 				files: ['<%= path.html.source %>**/*.*'],
 				tasks: ['html']
@@ -130,6 +129,6 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('html', ['jekyll']);
 	grunt.registerTask('css', ['less:dist', 'concat:css', 'usebanner:css']);
-	grunt.registerTask('js', ['uglify', 'concat:js', 'usebanner:js']);
+	// grunt.registerTask('js', ['uglify', 'concat:js', 'usebanner:js']);
 	grunt.registerTask('default', ['html', 'css', 'js']);
 };

@@ -2,23 +2,17 @@
 <html lang="es">
 <head>
 	{% include resources/metadata.html %}
-	{% include resources/favicon.html %}
+	{% comment %}{% include resources/favicon.html %}{% endcomment %}
 	{% include resources/styles.html %}
-	{% include resources/ie.html %}
-	{% include resources/scripts_header.html %}
+	{% comment %}{% include resources/ie.html %}{% endcomment %}
+	{% comment %}{% include resources/scripts_header.html %}{% endcomment %}
 </head>
 
 <body id="home" role="document">
-	<a href="#content" class="sr-only">Skip to main content</a>
-
-	{% include components/header.html %}
-
-	{% comment %}{% include components/navbar.html %}{% endcomment %}
+	{% comment %}<a href="#content" class="sr-only">Skip to main content</a>{% endcomment %}
 
 	{{ content }}
-	
-	{% include components/footer.html %}
 
-	{% include resources/scripts.html %}
+	{% comment %}{% include resources/scripts.html %}{% endcomment %}
 </body>
 </html>
