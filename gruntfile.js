@@ -69,6 +69,7 @@ module.exports = function(grunt) {
 				files: {
 					'<%= path.css.dist %>alejandrocuba.min.css': [
 						'<%= path.css.source %>vendor/bootstrap/bootstrap.min.css',
+						'<%= path.css.source %>vendor/font-awesome/font-awesome.min.css',
 						'<%= path.css.source %>compiled.min.css'
 					]
 				}
