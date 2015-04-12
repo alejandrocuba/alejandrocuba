@@ -1,14 +1,21 @@
 {
 	"name": "Alejandro Cuba",
-	"description": "Alejandro Cuba Ruiz website",
+	"description": "Alejandro Cuba Ruiz's website",
 	"homepage": "http://www.alejandrocuba.com/",
 	"devDependencies": {
 		"grunt": "~0.4.2",
 		"grunt-banner": "~0.2.0",
 		"grunt-contrib-concat": "~0.3.0",
 		"grunt-contrib-less": "~0.9.0",
+		"grunt-contrib-cssmin": "~0.10.0",
+		"grunt-uncss": "~0.4.0",
+    "grunt-autoprefixer": "~0.4.0",
 		"grunt-contrib-uglify": "~0.2.2",
 		"grunt-jekyll": "~0.4.1",
+		"htmllint": "~0.2.3",
+		"grunt-htmllint": "~0.2.6",
+		"bootlint": "~0.12.0",
+		"grunt-bootlint": "~0.9.0",
 		"grunt-contrib-watch": "~0.5.3"
 	}
 }

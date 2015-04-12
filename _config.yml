@@ -10,3 +10,6 @@ encoding:       UTF-8
 
 path:
   assets:       ../assets/
+  css:          ../assets/css/
+  js:           ../assets/js/
+  images:       ../assets/images/
