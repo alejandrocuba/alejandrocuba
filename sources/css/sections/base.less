@@ -1,20 +1,175 @@
+html,
 body {
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  line-height: 1.42857;
-	font-size: 18px;
-	background: #222 url("@{img-path}/bg.jpg");
-	
-	main article {
-		margin-top: 1em;
-		color: #ccc;
+	position: relative;
+	height: 100%;
+}
+
+body {
+	font-family: @font-family-base;
+  line-height: @line-height-base;
+	font-size: @font-size-base;
+	font-weight: lighter;
+	color: @color-text;
+}
+
+a {
+	color: @color-text;
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: darken(@color-text, 20%)
+	}
+}
+
+h1, h2, h3 {
+	font-weight: lighter;
+}
+
+dl {
+	margin-bottom: 0;
+
+	dt {
+		.sr-only();
+	}
+
+	dd {
+		display: inline-block;
+
+		&:after {
+			content: " · ";
+		}
+
+		&:last-child:after {
+			content: none;
+		}
+	}
+}
+
+header {
+	.container {
+		height: 100%;
+		padding-bottom: 30px;
 		text-align: center;
+		background-color: white;
+		background: url("@{img-path}photo/photography.jpg") left top no-repeat;
+		transition: background .33s ease-out;
 
-		small {
-			font-size: .9em;
+		@media (min-width: @screen-xs) {
+			min-height: 290px;
+			background-position: 60% top;
 		}
 
-		a {
-			color: #777;
+		@media (min-width: @screen-lg) {
+			background-position: right top;
 		}
+	}
+
+	.name {
+		margin-top: 272px;
+		font-size: 2em;
+		cursor: default;
+
+		&:after {
+			content: none;
+		}
+
+		@media (min-width: @screen-lg) {
+			margin-top: 80px;
+		}
+	}
+
+	.image {
+		display: none;
+	}
+}
+
+.profiles {
+	background-color: #f7f7f7;
+	border-color: #ccc;
+	border-style: solid;
+	border-width: 1px 0 2px;
+	cursor: default;
+}
+
+article {
+	text-align: center;
+
+	.fa {
+		display: block;
+		color: @color-icon;
+		font-size: 4em;
+		line-height: 1.2;
+	}
+
+	a {
+		display: block;
+		
+		@media (min-width: @screen-xs) {
+			padding: 30px 10px;
+		}
+
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: none;
+
+			@media (min-width: @screen-xs) {
+				background-color: lighten(@color-icon, 10%);
+			}
+
+			.fa-linkedin-square { color: #0578a0; }
+			.fa-facebook-square { color: #374f7b; }
+			.fa-pencil-square { color: #CA3737; }
+		}
+	}
+
+	dl {
+		font-size: .75em;
+		margin-bottom: 10px;
+
+		@media (min-width: @screen-xs) {
+			font-size: 1em;
+			margin-bottom: 0;
+		}
+	}
+}
+
+.contact {
+	padding: 15px 0;
+
+	@media (min-width: @screen-xs) {
+		text-align: center;
+	}
+
+	.fa {
+		margin-right: 5px;
+	}
+
+	dd {
+		margin-right: 10px;
+
+		&:after {
+			content: none;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+@media (min-width: @screen-sm) {
+	main {
+		position: relative;
+		margin-bottom: 50px;
+		z-index: 2;
+	}
+
+	.contact {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		z-index: 1;
 	}
 }

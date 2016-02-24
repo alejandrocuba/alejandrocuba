@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 	{% include resources/metadata.html %}
 	{% comment %}{% include resources/favicon.html %}{% endcomment %}
@@ -8,11 +8,10 @@
 	{% comment %}{% include resources/scripts_header.html %}{% endcomment %}
 </head>
 
-<body id="home" role="document">
-	{% comment %}<a href="#content" class="sr-only">Skip to main content</a>{% endcomment %}
+<body role="document">
 
 	{{ content }}
 
-	{% comment %}{% include resources/scripts.html %}{% endcomment %}
+	{% include resources/scripts.html %}
 </body>
 </html>

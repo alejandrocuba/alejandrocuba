@@ -163,7 +163,7 @@ module.exports = function(grunt) {
 			// },
 			html: {
 				files: ['<%= path.html.source %>**/*.*'],
-				tasks: ['html']
+				tasks: ['html', 'css']
 			}
 		}
 	});
@@ -183,7 +183,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('html', ['jekyll', 'htmllint', 'bootlint']);
-	grunt.registerTask('css', ['less', 'autoprefixer', 'concat:css', 'uncss', 'cssmin', 'usebanner:css']);
+	grunt.registerTask('css', ['less', 'autoprefixer', 'concat:css', /*'uncss', 'cssmin',*/ 'usebanner:css']);
 	// grunt.registerTask('js', ['uglify', 'concat:js', 'usebanner:js']);
 	grunt.registerTask('default', ['html', 'css']);
 };
