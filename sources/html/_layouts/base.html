@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	{% include resources/metadata.html %}
-	{% comment %}{% include resources/favicon.html %}{% endcomment %}
+	{% include resources/favicon.html %}
 	{% include resources/styles.html %}
-	{% comment %}{% include resources/ie.html %}{% endcomment %}
+	{% include resources/ie.html %}
 	{% comment %}{% include resources/scripts_header.html %}{% endcomment %}
 </head>
 
-<body role="document">
+<body role="document" class="is-loading">
 
-	{{ content }}
+	<!-- Wrapper -->
+	<div id="wrapper">
+		{{ content }}
+	</div>
 
 	{% include resources/scripts.html %}
 </body>
+
 </html>
