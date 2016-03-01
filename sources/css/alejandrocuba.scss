@@ -28,21 +28,40 @@
 		$size: _size(border-width) * 1.25;
 
 		&:before {
-			color: _palette(bg);
-			text-shadow: $size 0px 0px _palette(border),
-						($size * -1) 0px 0px _palette(border),
-						0px $size 0px _palette(border),
-						0px ($size * -1) 0px _palette(border);
-
+			// color: _palette(bg);
+			color: _palette(border);
+			// text-shadow: $size 0px 0px _palette(border),
+			// 			($size * -1) 0px 0px _palette(border),
+			// 			0px $size 0px _palette(border),
+			// 			0px ($size * -1) 0px _palette(border);
 		}
 
 		@if $link {
-			&:hover {
+			&.fa-facebook:hover {
 				&:before {
-					text-shadow: $size 0px 0px _palette(highlight),
-								($size * -1) 0px 0px _palette(highlight),
-								0px $size 0px _palette(highlight),
-								0px ($size * -1) 0px _palette(highlight);
+					color: #4E69A2;
+					// text-shadow: $size 0px 0px _palette(highlight),
+					// 			($size * -1) 0px 0px _palette(highlight),
+					// 			0px $size 0px _palette(highlight),
+					// 			0px ($size * -1) 0px _palette(highlight);
+				}
+			}
+			&.fa-linkedin:hover {
+				&:before {
+					color: #0077B5;
+					// text-shadow: $size 0px 0px _palette(highlight),
+					// 			($size * -1) 0px 0px _palette(highlight),
+					// 			0px $size 0px _palette(highlight),
+					// 			0px ($size * -1) 0px _palette(highlight);
+				}
+			}
+			&.fa-twitter:hover {
+				&:before {
+					color: #59ADEB;
+					// text-shadow: $size 0px 0px _palette(highlight),
+					// 			($size * -1) 0px 0px _palette(highlight),
+					// 			0px $size 0px _palette(highlight),
+					// 			0px ($size * -1) 0px _palette(highlight);
 				}
 			}
 		}

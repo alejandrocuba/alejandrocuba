@@ -421,10 +421,13 @@ ul {
           font-weight: normal;
           text-transform: none !important; }
         ul.icons li a:before {
-          color: #ffffff;
-          text-shadow: 1.25px 0px 0px #c8cccf, -1.25px 0px 0px #c8cccf, 0px 1.25px 0px #c8cccf, 0px -1.25px 0px #c8cccf; }
-        ul.icons li a:hover:before {
-          text-shadow: 1.25px 0px 0px #666, -1.25px 0px 0px #666, 0px 1.25px 0px #666, 0px -1.25px 0px #666; }
+          color: #c8cccf; }
+        ul.icons li a.fa-facebook:hover:before {
+          color: #4E69A2; }
+        ul.icons li a.fa-linkedin:hover:before {
+          color: #0077B5; }
+        ul.icons li a.fa-twitter:hover:before {
+          color: #59ADEB; }
         ul.icons li a:before {
           position: absolute;
           top: 0;
