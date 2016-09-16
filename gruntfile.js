@@ -136,6 +136,6 @@
 
  	grunt.registerTask('html', ['pug']);
  	grunt.registerTask('css', ['postcss', 'concat:css', 'usebanner:css']);
-  grunt.registerTask('js', ['uglify', 'concat:js', 'usebanner:js']);
+   grunt.registerTask('js', ['uglify', 'concat:js', 'usebanner:js']);
  	grunt.registerTask('default', ['html', 'css', 'js']);
  };
