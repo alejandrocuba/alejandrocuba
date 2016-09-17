@@ -1,0 +1,16 @@
+.console.module-fade
+  pre: code(class=`language-jade`).
+    doctype html
+    html(lang='en')
+      head
+        title Alejandro Cuba portfolio
+        - var metadata = {
+            description: "Front-End Web Developer",
+            location: "Portland, OR",
+            keywords: "html, css, javascript"
+          }
+
+        for content, name in metadata
+          meta(name=name, content=content)
+      body
+        

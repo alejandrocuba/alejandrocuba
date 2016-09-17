@@ -69,6 +69,7 @@
   			js: {
   				files: {
   					'<%= path.js.dist %>scripts.min.js': [
+    					'<%= path.js.source %>vendor/prism.min.js',
     					'<%= path.js.source %>compiled.min.js'
   					]
   				}
@@ -109,7 +110,9 @@
   		watch: {
   			options: { livereload: true },
   			css: {
-  				files: ['<%= path.css.source %>**/*.less'],
+  				files: ['<%= path.css.source %>**/*.*',
+               '! <%= path.css.source %>compiled.min.css'
+            ],
   				tasks: ['css']
   			},
   			js: {

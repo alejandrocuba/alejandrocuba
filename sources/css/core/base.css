@@ -1,0 +1,22 @@
+body {
+  color: #ddd;
+  background-color: #222;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+
+.console {
+  max-width: 640px;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 1000px;
+  font-family: "Roboto Mono", sans-serif;
+  font-size: .93em;
+}
+
+pre[class*=language-] {
+  margin-left: 20px;
+  margin-right: 20px;
+  border: none;
+  border-top: 3px solid #e49e4c;
+}
