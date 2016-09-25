@@ -1,1 +1,3 @@
+$img-path: "../images/";
+
 @custom-media --small-viewport (width < 768px);

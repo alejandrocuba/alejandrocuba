@@ -1,0 +1,19 @@
+.console {
+  font-family: "Roboto Mono", sans-serif;
+  font-size: .93em;
+
+  @nest main > & {
+    max-width: 640px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 1000px;
+  }
+}
+
+pre[class*=language-] {
+  margin-top: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: none;
+  border-top: 3px solid #e49e4c;
+}

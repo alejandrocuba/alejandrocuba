@@ -1,5 +1,5 @@
 .console.module-fade
-  pre: code(class=`language-jade`).
+  pre: code(class=`language-pug`).
     doctype html
     html(lang='en')
       head
@@ -7,10 +7,9 @@
         - var metadata = {
             description: "Front-End Web Developer",
             location: "Portland, OR",
-            keywords: "html, css, javascript"
+            keywords: "HTML, CSS, JavaScript"
           }
-
         for content, name in metadata
           meta(name=name, content=content)
       body
-        
+        main: section.portfolio
