@@ -1,0 +1,12 @@
+include ../_layout/setup/path
+include ../_data/creativeworks
+
+mixin creativework(w, i)
+  article(itemscope itemtype="http://schema.org/WebSite" data-rel="lightcase:myCollection:creativeworks" data-href=`#creativework-${i}`)
+    img.thumb(src=path.images + "portfolio/" + w.thumb)
+    .content(id=`creativework-${i}`)
+      p contenido de prueba + i
+
+section.portfolio
+  for work, index in creativeworks
+    +creativework(work, index)

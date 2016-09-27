@@ -32,9 +32,9 @@
      postcss: {
        options: {
          processors: [
-           require('postcss-cssnext')(),
+           require('postcss-cssnext')({browsers: 'last 20 versions'}),
            require('precss')(),
-           require('postcss-clean')()
+           require('postcss-clean')(),
          ]
        },
        dist: {
@@ -107,6 +107,10 @@
        }
   		},
 
+      htmllint: {
+         all: '<%= path.html.dist %>',
+      },
+
   		watch: {
   			options: { livereload: true },
   			css: {
@@ -135,9 +139,10 @@
  	grunt.loadNpmTasks('grunt-contrib-concat');
  	grunt.loadNpmTasks('grunt-banner');
    grunt.loadNpmTasks('grunt-contrib-pug');
+   grunt.loadNpmTasks('grunt-html');
  	grunt.loadNpmTasks('grunt-contrib-watch');
 
- 	grunt.registerTask('html', ['pug']);
+ 	grunt.registerTask('html', ['pug', 'htmllint']);
  	grunt.registerTask('css', ['postcss', 'concat:css', 'usebanner:css']);
    grunt.registerTask('js', ['uglify', 'concat:js', 'usebanner:js']);
  	grunt.registerTask('default', ['html', 'css', 'js']);

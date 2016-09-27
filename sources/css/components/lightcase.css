@@ -1,0 +1,6 @@
+#lightcase-overlay {
+  background-image: url("$(img-path)overlay.png");
+}
+.lightcase-icon-close {
+  display: none !important;
+}

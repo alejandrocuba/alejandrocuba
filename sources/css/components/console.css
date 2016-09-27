@@ -4,16 +4,31 @@
 
   @nest main > & {
     max-width: 640px;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 1000px;
+    margin: 0 auto 60px;
+  }
+
+  pre {
+    margin: 0 20px .5em;
+    padding: 1em;
+    overflow: auto;
+    border: none;
+    border-top: 3px solid $orange;
+    border-radius: 0 0 5px 5px;
+    transition: background-color ease-out .25s;
+    background: #292929;
+    cursor: text;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    &:hover {
+      background-color: #2d2d2d;
+    }
   }
 }
 
-pre[class*=language-] {
-  margin-top: 0;
-  margin-left: 20px;
-  margin-right: 20px;
-  border: none;
-  border-top: 3px solid #e49e4c;
+.token.url-link {
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
 }

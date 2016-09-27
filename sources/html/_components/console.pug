@@ -1,9 +1,9 @@
 .console.module-fade
-  pre: code(class=`language-pug`).
+  pre: code(class=`language-jade`).
     doctype html
     html(lang='en')
       head
-        title Alejandro Cuba portfolio
+        title Alejandro Cuba's portfolio
         - var metadata = {
             description: "Front-End Web Developer",
             location: "Portland, OR",
@@ -11,5 +11,15 @@
           }
         for content, name in metadata
           meta(name=name, content=content)
+
       body
-        main: section.portfolio
+        main
+          ul.social
+            li http://linkedin.com/in/alejandrocuba
+            li http://twitter.com/zorphdark
+            li http://facebook.com/zorphdark
+            li http://github.com/zorphdark
+
+          section.portfolio
+            for work, index in creativeworks
+              +creativework(work, index)

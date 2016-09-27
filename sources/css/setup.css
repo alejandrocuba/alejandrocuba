@@ -1,3 +1,7 @@
-$img-path: "../images/";
+$img-path: ../images/;
 
+$gray-dark: #222;
+$orange: #e49e4c;
+
+@custom-media --large-viewport (width >= 768px);
 @custom-media --small-viewport (width < 768px);

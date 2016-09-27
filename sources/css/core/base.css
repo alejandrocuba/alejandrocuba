@@ -1,12 +1,12 @@
 body {
   color: #ddd;
-  background-color: #222;
+  background-color: $gray-dark;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
 }
 
 .portrait {
-    margin: 20px auto -38px;
+    margin: 60px auto -14px;
     background: url("$(img-path)coding.jpg") top center no-repeat;
     height: 210px;
 }
