@@ -32,8 +32,8 @@
      postcss: {
        options: {
          processors: [
-           require('postcss-cssnext')({browsers: 'last 20 versions'}),
-           require('precss')(),
+            require('precss')(),
+            require('postcss-cssnext')({ browsers: ['last 30 versions', 'IE >= 8'], }),
            require('postcss-clean')(),
          ]
        },

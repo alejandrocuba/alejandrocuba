@@ -1,8 +1,3 @@
-// //- Preloader
-// $(window).load(function() {
-//   $(document.body).removeClass('is-loading');
-// });
-
 $(function () {
   /* ------------ *
    * Module fade *
@@ -18,7 +13,16 @@ $(function () {
     });
   });
 
-  $(".portfolio article").each(function(index, el) {
+  var $portfolio = $(".portfolio")
+  // preload images
+  // $(".screenshot", $portfolio).each(function(index, el) {
+  //   $("<img />").attr({ src: $(el).attr('src') });
+  // });
+
+  /* ------ *
+   * Modal *
+  /* ---- */
+  $("article", $portfolio).each(function(index, el) {
     $(el).lightcase({
       href: $(el).data('href'),
       speedIn: 150,
