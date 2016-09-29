@@ -1,12 +1,30 @@
+html {
+  font-size: 13px;
+}
+
 body {
   color: #ddd;
   background-color: $gray-dark;
   font-family: "Roboto", sans-serif;
-  font-size: 14px;
 }
 
 .portrait {
     margin: 60px auto -14px;
     background: url("$(img-path)coding.jpg") top center no-repeat;
     height: 210px;
+    transition: all ease-out $loading-transition-time;
+
+    @nest .is-loading & {
+      opacity: 0;
+      transform: translate(0, -30px);
+    }
+}
+
+
+/* prevents animation/transition flickering on page load */
+&.is-loading {
+  *, *:before, *:after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

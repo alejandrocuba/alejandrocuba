@@ -1,28 +1,39 @@
 .console {
   font-family: "Roboto Mono", sans-serif;
-  font-size: .93em;
+  font-size: 1em;
+  transition: all ease-out $loading-transition-time;
+  transform-origin: 50% 50%;
+
+  @nest .is-loading & {
+    opacity: 0;
+    transform: scale(1.15);
+  }
 
   @nest main > & {
     max-width: 640px;
     margin: 0 auto 60px;
   }
+}
 
-  pre {
+pre[class*=language-] {
+  margin: 0;
+  padding: 1em;
+  overflow: auto;
+  border: none;
+  transition: background-color ease-out .25s;
+  background: #292929;
+  cursor: text;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  @nest main & {
     margin: 0 20px .5em;
-    padding: 1em;
-    overflow: auto;
-    border: none;
     border-top: 3px solid $orange;
     border-radius: 0 0 5px 5px;
-    transition: background-color ease-out .25s;
-    background: #292929;
-    cursor: text;
-    word-wrap: normal;
-    line-height: 1.5;
+  }
 
-    &:hover {
-      background-color: #2d2d2d;
-    }
+  &:hover {
+    background-color: #2d2d2d;
   }
 }
 

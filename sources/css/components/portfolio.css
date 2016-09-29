@@ -1,4 +1,11 @@
 .portfolio {
+  transition: all ease-out $loading-transition-time;
+
+  @nest .is-loading & {
+    opacity: 0;
+    transform: translate(0, 40px);
+  }
+
   article {
     position: relative;
 
@@ -10,7 +17,7 @@
       content: "";
       background-color: transparent;
       z-index: 1;
-      transition: background-color ease-out .20s;
+      transition: all ease-out .20s;
     }
 
     &:hover::before {
@@ -25,16 +32,57 @@
     .thumb {
       width: 100%;
       opacity: .8;
-      transition: opacity ease-out .35s;
+      transition: opacity ease-out .33s;
       cursor: pointer;
     }
 
-    &:hover .thumb {
-      opacity: 1;
-    }
+      &:hover .thumb {
+        opacity: 1;
+      }
 
-    .content {
-      display: none;
+    .modal {
+      display: none !important;
     }
   }
+}
+
+.modal {
+  font-size: 0;
+
+  .screenshot,
+  .console {
+    display: inline-block;
+  }
+
+  .screenshot {
+    width: 60%;
+  }
+
+  .console {
+    width: 40%;
+    font-size: 13px;
+    font-size: 1rem;
+    vertical-align: top;
+  }
+}
+
+#lightcase {
+  &-content {
+    @nest #lightcase-case:not([data-lc-type=error]) & {
+      background-color: #292929;
+    }
+  }
+
+  &-nav {
+    a[class*='lightcase-icon-'] {
+      &,
+      &:focus {
+        color: $orange;
+      }
+    }
+  }
+}
+
+.lightcase-inlineWrap {
+  padding: 0 !important;
 }

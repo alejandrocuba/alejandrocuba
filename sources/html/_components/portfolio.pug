@@ -4,8 +4,15 @@ include ../_data/creativeworks
 mixin creativework(w, i)
   article(itemscope itemtype="http://schema.org/WebSite" data-rel="lightcase:myCollection:creativeworks" data-href=`#creativework-${i}`)
     img.thumb(src=path.images + "portfolio/" + w.thumb)
-    .content(id=`creativework-${i}`)
-      p contenido de prueba + i
+    .modal(id=`creativework-${i}`)
+      img.screenshot(src=path.images + "portfolio/" + w.screenshot)
+      .console.module-fade
+        pre: code(class=`language-javascript`)
+          ="{\n"
+          for index, i in Object.keys(w.data)
+            -let comma = (i < (Object.keys(w.data).length-1)) ? "," : "";
+            =`\t${index}: "${w.data[index]}"${comma}\n`
+          ="}"
 
 section.portfolio
   for work, index in creativeworks

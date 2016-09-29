@@ -1,7 +1,8 @@
 $img-path: ../images/;
+$loading-transition-time: .75s;
 
 $gray-dark: #222;
 $orange: #e49e4c;
 
-@custom-media --large-viewport (width >= 768px);
-@custom-media --small-viewport (width < 768px);
+@custom-media --large-viewport (width >= 641px);
+@custom-media --small-viewport (width < 640px);
