@@ -29,6 +29,11 @@
       width: 33.33%;
     }
 
+    @media (--medium-viewport) {
+      float: left;
+      width: 50%;
+    }
+
     .thumb {
       width: 100%;
       opacity: .8;
@@ -47,22 +52,24 @@
 }
 
 .modal {
-  font-size: 0;
-
-  .screenshot,
-  .console {
-    display: inline-block;
-  }
-
   .screenshot {
-    width: 60%;
+    width: 100%;
+    height: auto;
   }
 
-  .console {
-    width: 40%;
-    font-size: 13px;
-    font-size: 1rem;
-    vertical-align: top;
+  @media (--large-viewport) {
+    .screenshot {
+      width: 60%;
+      float: left;
+    }
+
+    .console {
+      float: right;
+      width: 40%;
+      font-size: 13px;
+      font-size: 1rem;
+      vertical-align: top;
+    }
   }
 }
 

@@ -5,7 +5,6 @@ mixin creativework(w, i)
   article(itemscope itemtype="http://schema.org/WebSite" data-rel="lightcase:myCollection:creativeworks" data-href=`#creativework-${i}`)
     img.thumb(src=path.images + "portfolio/" + w.thumb)
     .modal(id=`creativework-${i}`)
-      img.screenshot(src=path.images + "portfolio/" + w.screenshot)
       .console.module-fade
         pre: code(class=`language-javascript`)
           ="{\n"
@@ -13,6 +12,7 @@ mixin creativework(w, i)
             -let comma = (i < (Object.keys(w.data).length-1)) ? "," : "";
             =`\t${index}: "${w.data[index]}"${comma}\n`
           ="}"
+      img.screenshot(src=path.images + "portfolio/" + w.screenshot)
 
 section.portfolio
   for work, index in creativeworks

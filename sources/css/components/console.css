@@ -25,10 +25,11 @@ pre[class*=language-] {
   cursor: text;
   word-wrap: normal;
   line-height: 1.5;
+  border-top: 3px solid $orange;
+  border-radius: 0;
 
   @nest main & {
     margin: 0 20px .5em;
-    border-top: 3px solid $orange;
     border-radius: 0 0 5px 5px;
   }
 
