@@ -3,6 +3,7 @@ include ../_data/creativeworks
 
 mixin creativework(w, i)
   article(itemscope itemtype="http://schema.org/WebSite" data-rel="lightcase:myCollection:creativeworks" data-href=`#creativework-${i}`)
+    h1.title= w.title
     img.thumb(src=path.images + "portfolio/" + w.thumb)
     .modal(id=`creativework-${i}`)
       .console.module-fade

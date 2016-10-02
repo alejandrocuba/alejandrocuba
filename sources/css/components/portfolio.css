@@ -8,6 +8,7 @@
 
   article {
     position: relative;
+    background-color: #222;
 
     &::before {
       position: absolute;
@@ -34,6 +35,10 @@
       width: 50%;
     }
 
+    .title {
+      display: none;
+    }
+
     .thumb {
       width: 100%;
       opacity: .8;
@@ -52,6 +57,8 @@
 }
 
 .modal {
+  @mixin clearfix;
+
   .screenshot {
     width: 100%;
     height: auto;
