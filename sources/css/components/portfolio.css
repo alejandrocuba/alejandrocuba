@@ -1,4 +1,5 @@
 .portfolio {
+  @mixin clearfix;
   transition: all ease-out $loading-transition-time;
 
   @nest .is-loading & {

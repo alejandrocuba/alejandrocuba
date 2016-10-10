@@ -1,0 +1,16 @@
+.site-footer {
+  background-color: black;
+  text-align: center;
+  padding: 2em;
+  cursor: default;
+  color: #aaa;
+
+  p {
+    margin: 0;
+  }
+
+  b {
+    color: #ddd;
+    font-weight: normal;
+  }
+}
