@@ -21,7 +21,4 @@ block scripts
   <!--[if gt IE 8]><!--><script src="//code.jquery.com/jquery-2.2.4.min.js"></script><!--<![endif]-->
 
   for href in scripts
-    script(src=href)
-
-//- NOTE: remove on production
-script(src="//localhost:35729/livereload.js")
+    script(src=href async)
