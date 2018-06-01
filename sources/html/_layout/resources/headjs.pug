@@ -1,4 +1,25 @@
+script(type="application/ld+json").
+  {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "@id": "http://linkedin.com/in/alejandrocuba",
+    "name": "Alejandro Cuba",
+    "url": "http://www.alejandrocuba.com",
+    "email": "mailto:alejandrocubaruiz@gmail.com",
+    "image": "http://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAhTAAAAJDAyNjM2ZWFlLTk4NjgtNDgwZS1hM2Y3LWNkMmM4NDQ2MjdlNw.jpg",
+    "jobTitle": "Front-End Web Developer",
+    "birthDate": "1985-11-11",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Portland",
+      "addressRegion": "OR"
+    }
+  }
+
 script.
   if ('addEventListener' in window) {
     window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
   }
+
+//- preload js
+<!--[if lte IE 8]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
