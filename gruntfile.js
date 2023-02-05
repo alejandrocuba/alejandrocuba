@@ -107,9 +107,9 @@ module.exports = function (grunt) {
 			}
 		},
 
-		// htmllint: {
-		//    all: '<%= path.html.dist %>',
-		// },
+		htmllint: {
+		   all: '<%= path.html.dist %>' + 'index.html',
+		},
 
 		watch: {
 			options: { livereload: true },
@@ -142,8 +142,8 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-html');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	// grunt.registerTask('html', ['pug', 'htmllint']);
-	grunt.registerTask('html', ['pug']);
+	grunt.registerTask('html', ['pug', 'htmllint']);
+	// grunt.registerTask('html', ['pug']);
 	grunt.registerTask('css', ['postcss', 'concat:css', 'usebanner:css']);
 	grunt.registerTask('js', ['uglify', 'concat:js', 'usebanner:js']);
 	grunt.registerTask('default', ['html', 'css', 'js']);
