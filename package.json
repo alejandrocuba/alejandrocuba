@@ -5,6 +5,7 @@
   "version": "2.0.0",
   "scripts": {
     "build": "grunt --verbose",
+    "watch": "grunt watch",
     "serve": "http-server ./dist -o"
   },
   "devDependencies": {
