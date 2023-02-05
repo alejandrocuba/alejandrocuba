@@ -1,6 +1,7 @@
 node_modules/
-dist/html
+dist/index.html
 dist/assets/css
+dist/assets/js
 
 #################
 ## Eclipse
