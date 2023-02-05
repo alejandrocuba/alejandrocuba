@@ -1,10 +1,15 @@
 .portfolio {
-  @mixin clearfix;
+  display: flex;
+  flex-wrap: wrap;
   transition: all ease-out $loading-transition-time;
 
   @nest .is-loading & {
     opacity: 0;
     transform: translate(0, 40px);
+  }
+
+  .title {
+    display: none;
   }
 
   article {
@@ -36,10 +41,6 @@
       width: 50%;
     }
 
-    .title {
-      display: none;
-    }
-
     .thumb {
       width: 100%;
       opacity: .8;
@@ -58,8 +59,6 @@
 }
 
 .modal {
-  @mixin clearfix;
-
   .screenshot {
     width: 100%;
     height: auto;

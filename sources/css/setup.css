@@ -8,12 +8,3 @@ $orange: #e49e4c;
 @custom-media --large-viewport (width >= 1200px);
 @custom-media --medium-viewport (640px < width < 1200px);
 @custom-media --small-viewport (width <= 640px);
-
-@define-mixin clearfix {
-  &::before,
-  &::after {
-    display: block;
-    content: "";
-    clear:both;
-  }
-}
