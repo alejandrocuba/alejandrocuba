@@ -32,12 +32,10 @@
     }
 
     @media (--large-viewport) {
-      float: left;
       width: 33.33%;
     }
 
     @media (--medium-viewport) {
-      float: left;
       width: 50%;
     }
 
