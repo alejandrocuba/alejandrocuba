@@ -1,0 +1,11 @@
+/* TEAM */
+  Developer: Alejandro Cuba Ruiz
+  Contact: alejandrocubaruiz [at] google.com
+  Twitter: @zorphdark
+  From: Miami Beach, Florida
+
+/* SITE */
+	Last update: 2023
+	Language: English
+	Doctype: HTML5
+	IDE: Visual Studio Code
