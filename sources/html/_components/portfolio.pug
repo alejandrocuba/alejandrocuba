@@ -4,7 +4,7 @@ include ../_data/creativeworks
 mixin creativework(w, i)
   article(itemscope itemtype="http://schema.org/WebSite" data-rel="lightcase:myCollection:creativeworks" data-href=`#creativework-${i}`)
     h3.title= w.title
-    img.thumb(src=path.images + "portfolio/" + w.thumb, alt=w.title)
+    img.thumb(src=path.images + "portfolio/" + w.thumb, loading="lazy", alt=w.title)
     .modal(id=`creativework-${i}`)
       .console.module-fade
         pre: code(class=`language-javascript`)
@@ -13,7 +13,7 @@ mixin creativework(w, i)
             -let comma = (i < (Object.keys(w.data).length-1)) ? "," : "";
             =`\t${index}: "${w.data[index]}"${comma}\n`
           ="}"
-      img.screenshot(src=path.images + "portfolio/" + w.screenshot, alt="Screenshot")
+      img.screenshot(src=path.images + "portfolio/" + w.screenshot, loading="lazy", alt="Screenshot")
 
 section.portfolio
   h2.title Portfolio
