@@ -44,9 +44,9 @@ pre[class*=language-] {
 
 .token.url-link {
 
-  @media (--small-viewport), (--medium-viewport) {
+  /* @media (--small-viewport), (--medium-viewport) {
     line-height: 2.5;
-  }
+  } */
 
   &:hover,
   &:focus {
