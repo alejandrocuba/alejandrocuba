@@ -1,5 +1,19 @@
 {
   "projects": {
     "default": "alejandro-cuba"
+  },
+  "hosting": {
+    "public": "public",
+    "headers": [
+      {
+        "source": "/assets/css/styles.min.css",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      }
+    ]
   }
 }
