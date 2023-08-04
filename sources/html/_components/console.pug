@@ -5,9 +5,8 @@
       head
         title Alejandro Cuba Ruiz
         - var metadata = {
-            description: "Front-End Web Engineer",
-            location: "Miami Beach, Florida",
-            keywords: "HTML, CSS, JavaScript"
+            description: "Principal Front End Engineer, Angular Community Meetup Co-organizer, ngChampion for ng-conf",
+            location: "Miami Beach, FL",
           }
         for content, name in metadata
           meta(name=name, content=content)
@@ -22,8 +21,8 @@
           ul.social
             li https://linkedin.com/in/alejandrocuba
             li https://twitter.com/zorphdark
+            li https://meetup.com/angularcommunity/
 
-          h1.title Portfolio items
           section.portfolio
             for work, index in creativeworks
               +creativework(work, index)
