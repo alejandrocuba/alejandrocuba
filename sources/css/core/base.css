@@ -3,10 +3,16 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   color: #ddd;
   background-color: $gray-dark;
   font-family: "Roboto", sans-serif;
   background-image: url("$(img-path)overlay.png");
+}
+
+main {
+  flex-grow: 1;
 }
 
 .portrait {
