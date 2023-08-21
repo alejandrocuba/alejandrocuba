@@ -2,7 +2,6 @@ include ../setup/path
 
 -
   var scripts = [
-    'https://cdnjs.cloudflare.com/ajax/libs/lightcase/2.3.4/js/lightcase.min.js',
     path.js + "scripts.min.js"
   ]
 
@@ -14,8 +13,6 @@ block scripts
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-XJEFKVEFGM');
-
-  script(src="//code.jquery.com/jquery-3.6.0.min.js")
 
   for href in scripts
     script(src=href async)
