@@ -1,4 +1,4 @@
 Alejandro Cuba
 ==============
 
-[Alejandro Cuba Ruiz's website](http://www.alejandrocuba.com/)
+[Website](http://www.alejandrocuba.com/)
