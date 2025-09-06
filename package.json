@@ -15,7 +15,7 @@
     "grunt-contrib-pug": "~3.0.0",
     "grunt-contrib-uglify": "~5.2.2",
     "grunt-contrib-watch": "~1.1.0",
-    "grunt-html": "~16.0.0",
+    "grunt-html": "~17.1.0",
     "grunt-postcss": "~0.9.0",
     "http-server": "~14.1.1",
     "postcss-clean": "~1.2.2",
