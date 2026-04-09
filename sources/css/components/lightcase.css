@@ -1,16 +1,14 @@
 #lightcase-overlay {
-  background-image: url("$(img-path)overlay.png");
+  background-image: url("../images/overlay.png");
 }
 #lightcase-info {
   display: none;
 }
-.lightcase {
-  &-contentInner {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
+.lightcase-contentInner {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
 
-  &-icon-close {
-    display: none !important;
-  }
+.lightcase-icon-close {
+  display: none !important;
 }

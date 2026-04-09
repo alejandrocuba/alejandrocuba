@@ -29,21 +29,6 @@ module.exports = function (grunt) {
 			' * (c) <%= grunt.template.today("yyyy") %> <%= pkg.description %>\n' +
 			' */\n\n',
 
-		postcss: {
-			options: {
-				processors: [
-					require('precss')(),
-					require('postcss-cssnext')({ browsers: ['last 30 versions', 'IE >= 8'], }),
-					require('postcss-clean')(),
-				]
-			},
-			dist: {
-				files: {
-					'<%= path.css.source %>compiled.min.css': '<%= path.css.source %>styles.css'
-				}
-			}
-		},
-
 		uglify: {
 			options: {
 				mangle: false,
@@ -132,9 +117,7 @@ module.exports = function (grunt) {
 		}
 	});
 
-	require('time-grunt')(grunt);
 
-	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-banner');
@@ -144,7 +127,6 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('html', ['pug', 'htmllint']);
 	// grunt.registerTask('html', ['pug']);
-	grunt.registerTask('css', ['postcss', 'concat:css', 'usebanner:css']);
 	grunt.registerTask('js', ['uglify', 'concat:js', 'usebanner:js']);
 	grunt.registerTask('default', ['html', 'css', 'js']);
 };
