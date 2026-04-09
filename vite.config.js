@@ -1,31 +1,29 @@
-import { defineConfig } from 'vite';
-import pugPlugin from 'vite-plugin-pug-transformer';
+import pug from '@vituum/vite-plugin-pug';
 import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import vituum from 'vituum';
 
 export default defineConfig({
   plugins: [
-    pugPlugin({
-      // Basedir for pug includes/extends
-      basedir: resolve(__dirname, 'sources/html')
-    }),
+    vituum(),
+    pug({
+      root: '.'
+    })
   ],
-  root: '.',
+  root: 'sources/html',
+  publicDir: resolve(__dirname, 'public'),
   build: {
-    outDir: 'dist',
+    outDir: resolve(__dirname, 'dist'),
+    assetsDir: '',
     emptyOutDir: true,
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'sources/html/index.pug'),
-      },
-    },
-  },
-  server: {
-    port: 3000,
-    open: true,
+      input: ['index.pug'],
+    }
   },
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'sources'),
+      '/sources': resolve(__dirname, 'sources'),
+      '/assets': resolve(__dirname, 'public/assets'),
     },
   },
 });

@@ -8,7 +8,7 @@ body {
   color: #ddd;
   background-color: var(--gray-dark);
   font-family: "Roboto", sans-serif;
-  background-image: url("../images/overlay.png");
+  background-image: url("/assets/images/overlay.png");
 }
 
 main {
@@ -17,7 +17,7 @@ main {
 
 .portrait {
   margin: 60px auto -14px;
-  background: url("../images/coding.png") top center no-repeat;
+  background: url("/assets/images/coding.png") top center no-repeat;
   height: 210px;
   transition: all ease-out var(--loading-transition-time);
 

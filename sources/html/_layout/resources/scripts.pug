@@ -2,8 +2,7 @@ include ../setup/path
 
 -
   var scripts = [
-    path.js + "vendor/prism.min.js",
-    path.js + "scripts.min.js"
+    path.js + "vendor/prism.min.js"
   ]
 
 block scripts
@@ -16,4 +15,4 @@ block scripts
     gtag('config', 'G-XJEFKVEFGM');
 
   for href in scripts
-    script(src=href async)
+    script(src=href type="module" async)
