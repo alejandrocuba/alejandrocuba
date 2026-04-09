@@ -6,18 +6,15 @@ import vituum from 'vituum';
 export default defineConfig({
   plugins: [
     vituum(),
-    pug({
-      root: '.'
-    })
+    pug(),
   ],
-  root: 'sources/html',
   publicDir: resolve(__dirname, 'public'),
   build: {
-    outDir: resolve(__dirname, 'dist'),
+    outDir: 'dist',
     assetsDir: '',
     emptyOutDir: true,
     rollupOptions: {
-      input: ['index.pug'],
+      input: ['index.pug']
     }
   },
   resolve: {

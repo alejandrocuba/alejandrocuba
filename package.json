@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "postbuild": "mv dist/index.pug.html dist/index.html"
   },
   "devDependencies": {
     "vite": "^8.0.7",
