@@ -4,9 +4,10 @@
   "homepage": "http://alejandrocuba.com/",
   "version": "2.0.0",
   "scripts": {
-    "build": "grunt --verbose",
-    "watch": "grunt watch",
-    "serve": "http-server ./dist -o"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite preview"
   },
   "devDependencies": {
     "grunt": "^1.6.1",
