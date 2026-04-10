@@ -1,14 +1,21 @@
-//- Open Graph tags
-meta(property="og:title", content="Alejandro Cuba Ruiz website")
-meta(property="og:description", content="Get in touch with Alejandro Cuba Ruiz")
-meta(property="og:image", content="https://1drv.ms/i/s!Am6klHq81X7tjdxC_TR4QoHYmsqvjA?e=mqxD3Y")
-meta(property="og:url", content="http://www.alejandrocuba.com")
-meta(property="og:type", content="website")
-meta(property="og:locale", content="en_US")
+-
+  var social = {
+    "og:title": "Alejandro Cuba Ruiz | Principal Front-End Engineer",
+    "og:description": "Explore the creative portfolio of Alejandro Cuba Ruiz, GDE in Angular and ng-Champion.",
+    "og:type": "website",
+    "og:url": "https://alejandrocuba.com",
+    "og:image": "https://alejandrocuba.com/assets/images/og-image.jpg",
+    "og:locale": "en_US",
+    "twitter:card": "summary_large_image",
+    "twitter:site": "@zorphdark",
+    "twitter:creator": "@zorphdark",
+    "twitter:title": "Alejandro Cuba Ruiz | Principal Front-End Engineer",
+    "twitter:description": "Explore the creative portfolio of Alejandro Cuba Ruiz, GDE in Angular and ng-Champion.",
+    "twitter:image": "https://alejandrocuba.com/assets/images/og-image.jpg"
+  }
 
-//- Twitter Card tags
-meta(name="twitter:card", content="summary_large_image")
-meta(name="twitter:site", content="@zorphdark")
-meta(name="twitter:title", content="Alejandro Cuba Ruiz website")
-meta(name="twitter:description", content="Get in touch with Alejandro Cuba Ruiz")
-meta(name="twitter:image", content="https://1drv.ms/i/s!Am6klHq81X7tjdxC_TR4QoHYmsqvjA?e=mqxD3Y")
+for content, property in social
+  if property.startsWith('og:')
+    meta(property=property, content=content)
+  else
+    meta(name=property, content=content)
