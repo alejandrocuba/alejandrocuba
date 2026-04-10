@@ -1,9 +1,9 @@
 .portfolio {
   display: flex;
   flex-wrap: wrap;
-  transition: all ease-out $loading-transition-time;
+  transition: all ease-out var(--loading-transition-time);
 
-  @nest .is-loading & {
+  .is-loading & {
     opacity: 0;
     transform: translate(0, 40px);
   }
@@ -28,14 +28,14 @@
     }
 
     &:hover::before {
-      background-color: $orange;
+      background-color: var(--orange);
     }
 
-    @media (--large-viewport) {
+    @media (width >= 1200px) {
       width: 33.33%;
     }
 
-    @media (--medium-viewport) {
+    @media (640px < width < 1200px) {
       width: 50%;
     }
 
@@ -47,9 +47,9 @@
       cursor: pointer;
     }
 
-      &:hover .thumb {
-        opacity: 1;
-      }
+    &:hover .thumb {
+      opacity: 1;
+    }
 
     .modal {
       display: none !important;
@@ -63,7 +63,7 @@
     height: auto;
   }
 
-  @media (--large-viewport) {
+  @media (width >= 1200px) {
     .screenshot {
       width: 60%;
       float: left;
@@ -79,19 +79,17 @@
   }
 }
 
-#lightcase {
-  &-content {
-    @nest #lightcase-case:not([data-lc-type=error]) & {
-      background-color: #292929;
-    }
+#lightcase-content {
+  #lightcase-case:not([data-lc-type=error]) & {
+    background-color: #292929;
   }
+}
 
-  &-nav {
-    a[class*='lightcase-icon-'] {
-      &,
-      &:focus {
-        color: $orange;
-      }
+#lightcase-nav {
+  a[class*='lightcase-icon-'] {
+    &,
+    &:focus {
+      color: var(--orange);
     }
   }
 }

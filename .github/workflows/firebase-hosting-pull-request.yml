@@ -3,12 +3,18 @@
 
 name: Deploy to Firebase Hosting on PR
 'on': pull_request
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
       - run: npm i
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0

@@ -10,7 +10,8 @@ html(lang='en')
     include resources/social
 
   body.is-loading
-    main
+    a.skip-link(href='#main-content') Skip to content
+    main#main-content(tabindex="-1")
       block content
 
     include ../_components/footer

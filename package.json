@@ -2,25 +2,16 @@
   "name": "alejandrocuba",
   "description": "Alejandro Cuba Ruiz's website",
   "homepage": "http://alejandrocuba.com/",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "scripts": {
-    "build": "grunt --verbose",
-    "watch": "grunt watch",
-    "serve": "http-server ./dist -o"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite preview"
   },
   "devDependencies": {
-    "grunt": "^1.6.1",
-    "grunt-banner": "~0.6.0",
-    "grunt-contrib-concat": "~2.1.0",
-    "grunt-contrib-pug": "~3.0.0",
-    "grunt-contrib-uglify": "~5.2.2",
-    "grunt-contrib-watch": "~1.1.0",
-    "grunt-html": "~17.1.0",
-    "grunt-postcss": "~0.9.0",
-    "http-server": "~14.1.1",
-    "postcss-clean": "~1.2.2",
-    "postcss-cssnext": "~3.1.1",
-    "precss": "~4.0.0",
-    "time-grunt": "~2.0.0"
+    "vite": "^8.0.7",
+    "vituum": "^2.0.1",
+    "@vituum/vite-plugin-pug": "^1.0.1"
   }
 }

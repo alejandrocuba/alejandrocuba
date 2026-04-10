@@ -1,10 +1,8 @@
-$img-path: ../images/;
-$loading-transition-time: .75s;
+:root {
+  --loading-transition-time: .75s;
+  --gray-dark: #222;
+  --orange: #e49e4c;
 
-$gray-dark: #222;
-$orange: #e49e4c;
-
-
-@custom-media --large-viewport (width >= 1200px);
-@custom-media --medium-viewport (640px < width < 1200px);
-@custom-media --small-viewport (width <= 640px);
+  --large-viewport: 1200px;
+  --medium-viewport: 640px;
+}
