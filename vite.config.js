@@ -4,17 +4,18 @@ import { defineConfig } from 'vite';
 import vituum from 'vituum';
 
 export default defineConfig({
+  root: resolve(__dirname, 'sources/html'),
   plugins: [
     vituum(),
     pug(),
   ],
   publicDir: resolve(__dirname, 'public'),
   build: {
-    outDir: 'dist',
+    outDir: resolve(__dirname, 'dist'),
     assetsDir: '',
     emptyOutDir: true,
     rollupOptions: {
-      input: ['index.pug']
+      input: resolve(__dirname, 'sources/html/index.pug')
     }
   },
   resolve: {
