@@ -2,6 +2,22 @@
 
 This project follows strict web quality standards for SEO, Accessibility, Performance, and Security. All future changes should adhere to these rules.
 
+## 0. Project Architecture
+### File Structure
+- `sources/html/`: Contains all Pug templates.
+  - `_layout/`: Global layout (`base.pug`) and shared resources (meta, styles, scripts).
+  - `_components/`: Reusable interface fragments (footer, console).
+  - `_data/`: Data files (e.g., `creativeworks.pug`) for dynamic content.
+- `sources/css/`: Modular CSS files.
+  - `core/`: Base styles and typography.
+  - `components/`: Styles specific to Pug components.
+- `public/`: Static assets that are copied to the root of `dist/` during build.
+
+### CSS Breakpoints
+- **Mobile**: `max-width: 640px` (Default stack)
+- **Tablet**: `min-width: 641px` and `max-width: 1199px`
+- **Desktop**: `min-width: 1200px`
+
 ## 1. SEO (Search Engine Optimization)
 - [ ] **Sitemap**: Keep `public/sitemap.xml` updated. Update `<lastmod>` on significant content changes.
 - [ ] **Robots**: Ensure `public/robots.txt` points to the sitemap.
@@ -28,3 +44,9 @@ This project follows strict web quality standards for SEO, Accessibility, Perfor
 
 ## 5. Maintenance
 - [ ] **Copyright**: The year in `sources/html/_components/footer.pug` is automated. Ensure the build process correctly renders the current year.
+
+## 6. Development Workflow
+- [ ] **Asset Paths**: Always use the `path` object from `sources/html/_layout/setup/path.pug` for all assets (e.g., `path.images`, `path.css`). Never hardcode relative paths.
+- [ ] **Responsive Design**: All new components must be mobile-first and tested for responsiveness (viewports 320px to 1920px).
+- [ ] **Vite Config**: Do not modify `vite.config.js` without ensuring the build remains "flat" in the `dist/` directory for Firebase compatibility.
+- [ ] **Analytics**: Do not remove or change the Google Tag Manager ID in `scripts.pug` without explicit instructions.
