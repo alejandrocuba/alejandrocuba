@@ -39,6 +39,25 @@ main {
   white-space: nowrap;
 }
 
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+main:focus {
+  outline: none;
+}
+
 /* prevents animation/transition flickering on page load */
 body.is-loading {
   *, *::before, *::after {
