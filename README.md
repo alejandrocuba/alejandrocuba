@@ -1,13 +1,10 @@
 <div align="center">
 
-  <h1>👋 Hi, I'm Alejandro Cuba Ruiz</h1>
-  <p><strong>Principal Front-End Engineer | Google Developer Expert in Angular | ng-Champion | Sci-Fi Writer</strong></p>
-  
+  <h1>👋 Hi, I'm Alejandro</h1>
+  <p><strong>Principal Front-End Engineer • GDE in Angular • ng-Champion • Sci-Fi Writer</strong></p>
+
   <!-- Social Profiles -->
   <p>
-    <a href="https://www.alejandrocuba.com/" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.shields.io/badge/Website-8A2BE2?style=for-the-badge&logo=ghost&logoColor=white" alt="Sci-Fi Blog" />
-    </a>
     <a href="https://linkedin.com/in/alejandrocuba" target="_blank" rel="noopener noreferrer">
       <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
     </a>
@@ -19,6 +16,9 @@
     </a>
     <a href="https://medium.com/@alejandrocuba" target="_blank" rel="noopener noreferrer">
       <img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" alt="Medium" />
+    </a>
+    <a href="https://www.alejandrocuba.com/" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.shields.io/badge/Website-8A2BE2?style=for-the-badge&logo=ghost&logoColor=white" alt="Sci-Fi Blog" />
     </a>
   </p>
 
