@@ -38,6 +38,11 @@
 ## ✍️ Latest Medium Articles
 
 <!-- MEDIUM:START -->
+- [The 5 Lifecycle Stages of an Angular Feature](https://medium.com/ngconf/the-5-lifecycle-stages-of-an-angular-feature-c3ecc5529d53)
+- [Las 5 etapas del ciclo de vida de una funcionalidad en Angular](https://medium.com/ngconf/las-5-etapas-del-ciclo-de-vida-de-una-funcionalidad-en-angular-ea78d1ada6e8)
+- [Angularidades is Moving Home](https://medium.com/angularidades/angularidades-is-moving-home-7b92f69b9dac)
+- [Signal Forms with Arcadio Quintero](https://medium.com/angularidades/signal-forms-with-arcadio-quintero-5d3c3f18a71b)
+- [Angular Predictions for 2026 with a Panel of Google Developer Experts](https://medium.com/angularidades/angular-predictions-for-2026-with-a-panel-of-google-developer-experts-a4bcd685b20c)
 <!-- MEDIUM:END -->
 
 <br />
