@@ -29,19 +29,20 @@ function fetch(url) {
   });
 }
 
-// Recursively find all videoRenderer objects in the JSON
-function findVideoRenderers(obj, results = []) {
+// Recursively find all objects that contain a videoId string of exactly 11 chars
+// This is robust against YouTube using gridVideoRenderer, videoRenderer, compactVideoRenderer, etc.
+function findVideoObjects(obj, results = []) {
   if (!obj || typeof obj !== 'object') return results;
   
-  if (obj.videoRenderer) {
-    results.push(obj.videoRenderer);
-  } else {
-    for (const key of Object.keys(obj)) {
-      try {
-        findVideoRenderers(obj[key], results);
-      } catch (e) {
-        // Ignore circular reference or other access errors if any
-      }
+  if (typeof obj.videoId === 'string' && obj.videoId.length === 11) {
+    results.push(obj);
+  }
+  
+  for (const key of Object.keys(obj)) {
+    try {
+      findVideoObjects(obj[key], results);
+    } catch (e) {
+      // Ignore circular reference or other access errors if any
     }
   }
   return results;
@@ -82,8 +83,8 @@ async function getYouTubeVideos() {
     }
     
     const json = JSON.parse(ytInitialDataStr);
-    const renderers = findVideoRenderers(json);
-    console.log(`Found ${renderers.length} videoRenderer items in ytInitialData JSON`);
+    const renderers = findVideoObjects(json);
+    console.log(`Found ${renderers.length} video-like objects in ytInitialData JSON`);
     
     const videos = [];
     for (const renderer of renderers) {
