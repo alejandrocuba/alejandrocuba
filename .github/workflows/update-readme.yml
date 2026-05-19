@@ -20,7 +20,7 @@ jobs:
         uses: gautamkrishnar/blog-post-workflow@v1
         with:
           comment_tag_name: "YOUTUBE"
-          feed_list: "https://www.youtube.com/@angularidades"
+          feed_list: "https://www.youtube.com/feeds/videos.xml?channel_id=UCt-RapUjjh1cfbZJRrUgtEA"
           custom_tags: "videoId/yt:videoId/"
           template: '<a href="$url"><img width="180" src="https://i.ytimg.com/vi/$custom_videoId/mqdefault.jpg" alt="$title"></a>&nbsp;&nbsp;'
           max_post_count: 5
