@@ -21,7 +21,7 @@ function fetch(url) {
       if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
         return fetch(res.headers.location).then(resolve).catch(reject);
       }
-      
+
       let data = '';
       res.on('data', (chunk) => { data += chunk; });
       res.on('end', () => resolve(data));
@@ -33,11 +33,11 @@ function fetch(url) {
 // This is robust against YouTube using gridVideoRenderer, videoRenderer, compactVideoRenderer, etc.
 function findVideoObjects(obj, results = []) {
   if (!obj || typeof obj !== 'object') return results;
-  
+
   if (typeof obj.videoId === 'string' && obj.videoId.length === 11) {
     results.push(obj);
   }
-  
+
   for (const key of Object.keys(obj)) {
     try {
       findVideoObjects(obj[key], results);
@@ -54,17 +54,17 @@ async function getYouTubeVideos() {
     console.log('Fetching YouTube videos from:', YOUTUBE_URL);
     const html = await fetch(YOUTUBE_URL);
     console.log('YouTube page fetched successfully. HTML length:', html.length);
-    
+
     // Check if consent redirect happened
     if (html.includes('consent.youtube.com') || html.includes('before_you_redirect') || html.includes('consent-bump')) {
       console.log('Warning: YouTube consent wall/redirect detected in HTML!');
     }
-    
+
     // Robust balanced-braces script extractor for ytInitialData
     const scriptRegex = /<script\b[^>]*>([\s\S]*?)<\/script>/gi;
     let scriptMatch;
     let ytInitialDataStr = null;
-    
+
     while ((scriptMatch = scriptRegex.exec(html)) !== null) {
       const content = scriptMatch[1];
       if (content.includes('ytInitialData')) {
@@ -77,15 +77,15 @@ async function getYouTubeVideos() {
         }
       }
     }
-    
+
     if (!ytInitialDataStr) {
       throw new Error('Could not find ytInitialData script block in YouTube HTML response');
     }
-    
+
     const json = JSON.parse(ytInitialDataStr);
     const renderers = findVideoObjects(json);
     console.log(`Found ${renderers.length} video-like objects in ytInitialData JSON`);
-    
+
     const videos = [];
     for (const renderer of renderers) {
       const videoId = renderer.videoId;
@@ -97,9 +97,9 @@ async function getYouTubeVideos() {
           url: `https://www.youtube.com/watch?v=${videoId}`
         });
       }
-      if (videos.length >= 5) break;
+      if (videos.length >= 4) break;
     }
-    
+
     console.log(`Parsed ${videos.length} videos from renderers`);
     return videos;
   } catch (error) {
@@ -114,28 +114,28 @@ async function getMediumArticles() {
     console.log('Fetching Medium articles from:', MEDIUM_FEED_URL);
     const xml = await fetch(MEDIUM_FEED_URL);
     console.log('Medium feed fetched successfully. XML length:', xml.length);
-    
+
     const articles = [];
     const itemRegex = /<item>([\s\S]*?)<\/item>/g;
     let match;
-    
+
     while ((match = itemRegex.exec(xml)) !== null && articles.length < 5) {
       const itemContent = match[1];
-      
+
       const titleMatch = itemContent.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/) || itemContent.match(/<title>([\s\S]*?)<\/title>/);
       const linkMatch = itemContent.match(/<link>([\s\S]*?)<\/link>/) || itemContent.match(/<link><!\[CDATA\[([\s\S]*?)\]\]><\/link>/);
-      
+
       if (titleMatch && linkMatch) {
         let url = linkMatch[1].trim();
         url = url.split('?')[0];
-        
+
         articles.push({
           title: titleMatch[1].trim(),
           url: url
         });
       }
     }
-    
+
     console.log(`Parsed ${articles.length} Medium articles`);
     return articles;
   } catch (error) {
@@ -150,54 +150,54 @@ async function main() {
     getYouTubeVideos(),
     getMediumArticles()
   ]);
-  
+
   if (videos.length === 0 && articles.length === 0) {
     console.log('No new content fetched. Skipping README update.');
     return;
   }
-  
+
   let readmeContent = fs.readFileSync(README_PATH, 'utf8');
-  
+
   // 1. Update YouTube Section
   if (videos.length > 0) {
     const youtubeStartTag = '<!-- YOUTUBE:START -->';
     const youtubeEndTag = '<!-- YOUTUBE:END -->';
     const youtubeStartIndex = readmeContent.indexOf(youtubeStartTag);
     const youtubeEndIndex = readmeContent.indexOf(youtubeEndTag);
-    
+
     if (youtubeStartIndex !== -1 && youtubeEndIndex !== -1) {
       const youtubeHTML = videos.map(video => {
         return `<a href="${video.url}" target="_blank" rel="noopener noreferrer"><img width="180" src="https://i.ytimg.com/vi/${video.id}/mqdefault.jpg" alt="${video.title.replace(/"/g, '&quot;')}"></a>`;
       }).join('&nbsp;&nbsp;\n  ');
-      
-      readmeContent = 
-        readmeContent.substring(0, youtubeStartIndex + youtubeStartTag.length) + 
-        '\n  ' + youtubeHTML + '\n' + 
+
+      readmeContent =
+        readmeContent.substring(0, youtubeStartIndex + youtubeStartTag.length) +
+        '\n  ' + youtubeHTML + '\n' +
         readmeContent.substring(youtubeEndIndex);
       console.log(`Updated YouTube section with ${videos.length} videos.`);
     }
   }
-  
+
   // 2. Update Medium Section
   if (articles.length > 0) {
     const mediumStartTag = '<!-- MEDIUM:START -->';
     const mediumEndTag = '<!-- MEDIUM:END -->';
     const mediumStartIndex = readmeContent.indexOf(mediumStartTag);
     const mediumEndIndex = readmeContent.indexOf(mediumEndTag);
-    
+
     if (mediumStartIndex !== -1 && mediumEndIndex !== -1) {
       const mediumMarkdown = articles.map(article => {
         return `- [${article.title}](${article.url})`;
       }).join('\n');
-      
-      readmeContent = 
-        readmeContent.substring(0, mediumStartIndex + mediumStartTag.length) + 
-        '\n' + mediumMarkdown + '\n' + 
+
+      readmeContent =
+        readmeContent.substring(0, mediumStartIndex + mediumStartTag.length) +
+        '\n' + mediumMarkdown + '\n' +
         readmeContent.substring(mediumEndIndex);
       console.log(`Updated Medium section with ${articles.length} articles.`);
     }
   }
-  
+
   fs.writeFileSync(README_PATH, readmeContent, 'utf8');
   console.log('README.md updated successfully!');
 }
