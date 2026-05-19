@@ -1,0 +1,38 @@
+name: Update README with Latest Content
+
+on:
+  schedule:
+    - cron: '0 */3 * * *' # Runs every 3 hours
+  workflow_dispatch: # Allows manual triggering
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    name: Update README with latest YouTube videos and Medium articles
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Update YouTube Videos
+        uses: gautamkrishnar/blog-post-workflow@v1
+        with:
+          comment_tag_name: "YOUTUBE"
+          feed_list: "https://www.youtube.com/feeds/videos.xml?channel_id=UCM_g5n0YdFkM13YF2z9_78w" # We will use the channel ID if found, else rely on another URL. Actually, the feed url for handles is supported by scraping or we can just provide the handle page and blog-post-workflow extracts it!
+          # "You can also pass the YouTube channel URL directly"
+          # feed_list: "https://www.youtube.com/@angularidades"
+          # Wait, blog-post-workflow handles youtube urls directly:
+          feed_list: "https://www.youtube.com/@angularidades"
+          custom_tags: "videoId/yt:videoId/"
+          template: '<a href="$url"><img width="180" src="https://i.ytimg.com/vi/$custom_videoId/mqdefault.jpg" alt="$title"></a>&nbsp;&nbsp;'
+          max_post_count: 5
+
+      - name: Update Medium Articles
+        uses: gautamkrishnar/blog-post-workflow@v1
+        with:
+          comment_tag_name: "MEDIUM"
+          feed_list: "https://medium.com/feed/@alejandrocuba"
+          max_post_count: 5
+          template: '- [$title]($url)'
