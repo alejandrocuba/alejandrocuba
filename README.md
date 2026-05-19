@@ -33,8 +33,7 @@
   <a href="https://www.youtube.com/watch?v=wIaThYaieUA" target="_blank" rel="noopener noreferrer"><img width="180" src="https://i.ytimg.com/vi/wIaThYaieUA/mqdefault.jpg" alt="Angularidades Episode"></a>&nbsp;&nbsp;
   <a href="https://www.youtube.com/watch?v=RNloEbj6BDU" target="_blank" rel="noopener noreferrer"><img width="180" src="https://i.ytimg.com/vi/RNloEbj6BDU/mqdefault.jpg" alt="Angularidades Episode"></a>&nbsp;&nbsp;
   <a href="https://www.youtube.com/watch?v=YrY3tgbkJkY" target="_blank" rel="noopener noreferrer"><img width="180" src="https://i.ytimg.com/vi/YrY3tgbkJkY/mqdefault.jpg" alt="Angularidades Episode"></a>&nbsp;&nbsp;
-  <a href="https://www.youtube.com/watch?v=Dt5rw1UCh5Q" target="_blank" rel="noopener noreferrer"><img width="180" src="https://i.ytimg.com/vi/Dt5rw1UCh5Q/mqdefault.jpg" alt="Angularidades Episode"></a>&nbsp;&nbsp;
-  <a href="https://www.youtube.com/watch?v=3AD-vIqvCgs" target="_blank" rel="noopener noreferrer"><img width="180" src="https://i.ytimg.com/vi/3AD-vIqvCgs/mqdefault.jpg" alt="Angularidades Episode"></a>
+  <a href="https://www.youtube.com/watch?v=Dt5rw1UCh5Q" target="_blank" rel="noopener noreferrer"><img width="180" src="https://i.ytimg.com/vi/Dt5rw1UCh5Q/mqdefault.jpg" alt="Angularidades Episode"></a>
 <!-- YOUTUBE:END -->
 </div>
 
