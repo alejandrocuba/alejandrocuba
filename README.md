@@ -1,4 +1,4 @@
-<div align="center">
+<div>
 
   <h1>👋 Hola, I'm Alejandro!</h1>
   <p>Principal Front-End Engineer, GDE in Angular, ng-Champion & Sci-Fi Writer</p>
@@ -28,7 +28,7 @@
 
 ## 🎙️ Latest from Angularidades
 
-<div align="center">
+<div>
   <!-- YOUTUBE:START -->
   <a href="https://www.youtube.com/watch?v=wIaThYaieUA" target="_blank" rel="noopener noreferrer"><img width="180" src="https://i.ytimg.com/vi/wIaThYaieUA/mqdefault.jpg" alt="Angularidades Episode"></a>&nbsp;&nbsp;
   <a href="https://www.youtube.com/watch?v=RNloEbj6BDU" target="_blank" rel="noopener noreferrer"><img width="180" src="https://i.ytimg.com/vi/RNloEbj6BDU/mqdefault.jpg" alt="Angularidades Episode"></a>&nbsp;&nbsp;
