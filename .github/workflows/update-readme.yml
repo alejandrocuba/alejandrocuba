@@ -16,19 +16,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Update YouTube Videos
-        uses: gautamkrishnar/blog-post-workflow@v1
-        with:
-          comment_tag_name: "YOUTUBE"
-          feed_list: "https://www.youtube.com/feeds/videos.xml?channel_id=UCt-RapUjjh1cfbZJRrUgtEA"
-          custom_tags: "videoId/yt:videoId/"
-          template: '<a href="$url"><img width="180" src="https://i.ytimg.com/vi/$custom_videoId/mqdefault.jpg" alt="$title"></a>&nbsp;&nbsp;'
-          max_post_count: 5
+      - name: Run Profile Updater Script
+        run: node .github/scripts/update-profile.js
 
-      - name: Update Medium Articles
-        uses: gautamkrishnar/blog-post-workflow@v1
-        with:
-          comment_tag_name: "MEDIUM"
-          feed_list: "https://medium.com/feed/@alejandrocuba"
-          max_post_count: 5
-          template: '- [$title]($url)'
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update latest youtube videos and medium articles" && git push)
