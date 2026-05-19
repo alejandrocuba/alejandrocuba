@@ -20,10 +20,6 @@ jobs:
         uses: gautamkrishnar/blog-post-workflow@v1
         with:
           comment_tag_name: "YOUTUBE"
-          feed_list: "https://www.youtube.com/feeds/videos.xml?channel_id=UCM_g5n0YdFkM13YF2z9_78w" # We will use the channel ID if found, else rely on another URL. Actually, the feed url for handles is supported by scraping or we can just provide the handle page and blog-post-workflow extracts it!
-          # "You can also pass the YouTube channel URL directly"
-          # feed_list: "https://www.youtube.com/@angularidades"
-          # Wait, blog-post-workflow handles youtube urls directly:
           feed_list: "https://www.youtube.com/@angularidades"
           custom_tags: "videoId/yt:videoId/"
           template: '<a href="$url"><img width="180" src="https://i.ytimg.com/vi/$custom_videoId/mqdefault.jpg" alt="$title"></a>&nbsp;&nbsp;'
