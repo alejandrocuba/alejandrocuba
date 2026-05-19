@@ -50,21 +50,40 @@ function findVideoRenderers(obj, results = []) {
 // Fetch and parse YouTube Videos
 async function getYouTubeVideos() {
   try {
-    console.log('Fetching YouTube videos...');
+    console.log('Fetching YouTube videos from:', YOUTUBE_URL);
     const html = await fetch(YOUTUBE_URL);
+    console.log('YouTube page fetched successfully. HTML length:', html.length);
     
-    // Highly robust matching for ytInitialData JSON block that handles quotes, prefixes and spaces
-    const match = html.match(/ytInitialData\s*=\s*({[\s\S]*?});/);
-    if (!match) {
-      // Check if we got redirected to a consent page
-      if (html.includes('consent.youtube.com') || html.includes('before_you_redirect')) {
-        throw new Error('Google consent page wall detected. Cookie bypass failed.');
-      }
-      throw new Error('Could not find ytInitialData in YouTube response');
+    // Check if consent redirect happened
+    if (html.includes('consent.youtube.com') || html.includes('before_you_redirect') || html.includes('consent-bump')) {
+      console.log('Warning: YouTube consent wall/redirect detected in HTML!');
     }
     
-    const json = JSON.parse(match[1]);
+    // Robust balanced-braces script extractor for ytInitialData
+    const scriptRegex = /<script\b[^>]*>([\s\S]*?)<\/script>/gi;
+    let scriptMatch;
+    let ytInitialDataStr = null;
+    
+    while ((scriptMatch = scriptRegex.exec(html)) !== null) {
+      const content = scriptMatch[1];
+      if (content.includes('ytInitialData')) {
+        const start = content.indexOf('{');
+        const end = content.lastIndexOf('}');
+        if (start !== -1 && end !== -1) {
+          ytInitialDataStr = content.substring(start, end + 1);
+          console.log('Found ytInitialData script block. JSON length:', ytInitialDataStr.length);
+          break;
+        }
+      }
+    }
+    
+    if (!ytInitialDataStr) {
+      throw new Error('Could not find ytInitialData script block in YouTube HTML response');
+    }
+    
+    const json = JSON.parse(ytInitialDataStr);
     const renderers = findVideoRenderers(json);
+    console.log(`Found ${renderers.length} videoRenderer items in ytInitialData JSON`);
     
     const videos = [];
     for (const renderer of renderers) {
@@ -80,9 +99,10 @@ async function getYouTubeVideos() {
       if (videos.length >= 5) break;
     }
     
+    console.log(`Parsed ${videos.length} videos from renderers`);
     return videos;
   } catch (error) {
-    console.error('Error fetching YouTube videos:', error.message);
+    console.error('Error fetching YouTube videos:', error.stack || error.message);
     return [];
   }
 }
@@ -90,8 +110,9 @@ async function getYouTubeVideos() {
 // Fetch and parse Medium Articles
 async function getMediumArticles() {
   try {
-    console.log('Fetching Medium articles...');
+    console.log('Fetching Medium articles from:', MEDIUM_FEED_URL);
     const xml = await fetch(MEDIUM_FEED_URL);
+    console.log('Medium feed fetched successfully. XML length:', xml.length);
     
     const articles = [];
     const itemRegex = /<item>([\s\S]*?)<\/item>/g;
@@ -104,7 +125,6 @@ async function getMediumArticles() {
       const linkMatch = itemContent.match(/<link>([\s\S]*?)<\/link>/) || itemContent.match(/<link><!\[CDATA\[([\s\S]*?)\]\]><\/link>/);
       
       if (titleMatch && linkMatch) {
-        // Clean up the URL (strip query params if any)
         let url = linkMatch[1].trim();
         url = url.split('?')[0];
         
@@ -115,9 +135,10 @@ async function getMediumArticles() {
       }
     }
     
+    console.log(`Parsed ${articles.length} Medium articles`);
     return articles;
   } catch (error) {
-    console.error('Error fetching Medium articles:', error.message);
+    console.error('Error fetching Medium articles:', error.stack || error.message);
     return [];
   }
 }
