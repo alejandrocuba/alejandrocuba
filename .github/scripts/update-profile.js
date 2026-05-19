@@ -13,7 +13,9 @@ function fetch(url) {
     https.get(url, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
-        'Accept-Language': 'en-US,en;q=0.9'
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Cookie': 'SOCS=JD8' // Bypasses YouTube/Google consent wall redirects globally
       }
     }, (res) => {
       if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
@@ -51,9 +53,13 @@ async function getYouTubeVideos() {
     console.log('Fetching YouTube videos...');
     const html = await fetch(YOUTUBE_URL);
     
-    // Extract ytInitialData JSON
-    const match = html.match(/var ytInitialData = ({.*?});<\/script>/) || html.match(/window\["ytInitialData"\] = ({.*?});/);
+    // Highly robust matching for ytInitialData JSON block that handles quotes, prefixes and spaces
+    const match = html.match(/ytInitialData\s*=\s*({[\s\S]*?});/);
     if (!match) {
+      // Check if we got redirected to a consent page
+      if (html.includes('consent.youtube.com') || html.includes('before_you_redirect')) {
+        throw new Error('Google consent page wall detected. Cookie bypass failed.');
+      }
       throw new Error('Could not find ytInitialData in YouTube response');
     }
     

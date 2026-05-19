@@ -45,8 +45,4 @@
 - [Angular Predictions for 2026 with a Panel of Google Developer Experts](https://medium.com/angularidades/angular-predictions-for-2026-with-a-panel-of-google-developer-experts-a4bcd685b20c)
 <!-- MEDIUM:END -->
 
-<br />
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=alejandrocuba&show_icons=true&theme=radical&hide_border=true&bg_color=0d1117&text_color=c9d1d9&icon_color=58a6ff&title_color=58a6ff" alt="Alejandro's GitHub Stats" />
 </div>
