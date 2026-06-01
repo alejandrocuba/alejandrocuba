@@ -1,6 +1,6 @@
 <div>
 
-  <h1>Hola, I'm Alejandro!</h1>
+  <h1>👋 Hola, I'm Alejandro!</h1>
   <p>Principal Front-End Engineer, GDE in Angular, ng-Champion & Sci-Fi Writer</p>
 
   <!-- Social Profiles -->
