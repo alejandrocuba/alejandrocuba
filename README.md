@@ -1,6 +1,6 @@
 <div>
 
-  <h1>👋 Hola, I'm Alejandro!</h1>
+  <h1>Hola, I'm Alejandro!</h1>
   <p>Principal Front-End Engineer, GDE in Angular, ng-Champion & Sci-Fi Writer</p>
 
   <!-- Social Profiles -->
@@ -26,7 +26,7 @@
 
 <hr />
 
-## 🎙️ Latest from Angularidades
+## Latest from the Angularidades podcast
 
 <div>
   <!-- YOUTUBE:START -->
@@ -39,7 +39,7 @@
 
 <br />
 
-## ✍️ Latest Medium Articles
+## Most Recent Articles
 
 <!-- MEDIUM:START -->
 - [The 5 Lifecycle Stages of an Angular Feature](https://medium.com/ngconf/the-5-lifecycle-stages-of-an-angular-feature-c3ecc5529d53)
